@@ -15,14 +15,14 @@ services:
   api:
     image: issuernode-api:local
     ports:
-      - "3001:3001"
+      - "3002:3002"
     env_file:
       - ../../.env-issuer
     volumes:
       - ../../localstoragekeys:/localstoragekeys:rw
       - ../../resolvers_settings.yaml:/resolvers_settings.yaml
     healthcheck:
-      test: ["CMD", "curl", "-f", "localhost:3001/status"]
+      test: ["CMD", "curl", "-f", "localhost:3002/status"]
       interval: 10s
       timeout: 5s
       retries: 5
